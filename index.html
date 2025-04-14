@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सर्वेश्वररत्न-महेश्वर सूत्र स्मरण क्रीड़ा</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .big-font {
+            font-size: 30px !important;
+            font-weight: bold;
+        }
+        
+        .card {
+            font-size: 52px;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 0.5rem;
+            border: 3px solid #6c757d;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            min-width: 100px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            background-color: #ffc107;
+            transform: scale(1.05);
+        }
+        
+        .question-box {
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ffeeba;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #28a745;
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+        
+        .difficulty-badge {
+            display: inline-block;
+            padding: 0.25em 0.4em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+            margin-left: 5px;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .button {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .button:hover {
+            background-color: #0b5ed7;
+        }
+        
+        .button-start {
+            background-color: #198754;
+            font-size: 20px;
+            padding: 15px 30px;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        .button-start:hover {
+            background-color: #157347;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .emoji-animation {
+            text-align: center;
+            font-size: 100px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% {transform: translateY(0);}
+            50% {transform: translateY(-20px);}
+        }
+        
+        .result-message {
+            font-size: 24px;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .wrong {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        /* Confetti styles */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .confetti {
+            position: absolute;
+            font-size: 20px;
+            animation: fall linear forwards;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .card {
+                font-size: 42px;
+                padding: 1rem;
+                min-width: 80px;
+                height: 100px;
+            }
+            
+            .big-font {
+                font-size: 24px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Start Page -->
+        <div id="start-page">
+            <h1>🪶 सर्वेश्वररत्न-महेश्वर सूत्र स्मरण क्रीड़ा ⚔️</h1>
+            
+            <div class="emoji-animation">🕉️</div>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                <h3>स्वागतम्! महेश्वरसूत्राणां स्मरणपरीक्षायां प्रवर्तस्व!</h3>
+                <p style="font-size: 1.1rem; text-align: left;">
+                    १. अक्षराणि "३" सेकण्डपर्यन्त पश्यतु <br>
+                    २. एमोजी-रूपेण गूढेषु कार्डेषु सही अक्षरं/सूत्रं चिनुतु <br>
+                    ३. सही उत्तरैः नूतनः स्तरः प्राप्यते
+                </p>
+            </div>
+            
+            <button id="start-game" class="button button-start">🎮 क्रीडां प्रारभताम्!</button>
+            
+            <div style="margin-top: 30px;">
+                <h3>⚙️ सेटिङ्ग्स्</h3>
+                <label for="difficulty">कठिनतास्तरः:</label>
+                <select id="difficulty" class="button">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Game Page -->
+        <div id="game-page" class="hidden">
+            <h1>🧠 सर्वेश्वररत्न-महेश्वर सूत्र स्मरण क्रीड़ा ⚔️</h1>
+            <h2 id="level-display">🌟 स्तरः 1 <span id="difficulty-badge" class="difficulty-badge" style="background-color: #fd7e14; color: white;">MEDIUM</span></h2>
+            
+            <div class="progress-bar">
+                <div id="progress" class="progress" style="width: 0%"></div>
+            </div>
+            
+            <div id="score-display" style="font-size: 24px; color: #28a745; font-weight: bold; margin-bottom: 20px;">
+                अङ्काः: 0 | अनुक्रमः: 0 (उच्चतमः: 0)
+            </div>
+            
+            <div style="font-size: 18px; color: #6c757d; margin-bottom: 15px; font-style: italic;">
+                एमोजी-रूपेण कार्डाः आवृताः सन्ति!
+            </div>
+            
+            <div id="question-box" class="question-box">
+                <div id="question-text" class="big-font"></div>
+            </div>
+            
+            <div id="result-message" class="result-message hidden"></div>
+            
+            <div id="options-container" class="options-container"></div>
+            
+            <button id="reset-game" class="button" style="background-color: #dc3545; margin-top: 20px;">🔁 पुनः प्रारभ्यताम्!</button>
+        </div>
+    </div>
+
+    <script>
+        // Game constants
+        const SANSKRIT_MESSAGES = {
+            "welcome": "स्वागतम्! महेश्वरसूत्राणां स्मरणपरीक्षायां प्रवर्तस्व!",
+            "card_info": "एमोजी-रूपेण कार्डाः आवृताः सन्ति!",
+            "correct": "साधु! उत्तमम्!",
+            "wrong": "क्षम्यताम्! सही उत्तरम्: ",
+            "level_up": "अभिनन्दनम्! नूतनं स्तरं प्राप्तम्!",
+            "instructions": "१. अक्षराणि '३' सेकण्डपर्यन्त पश्यतु \n२. एमोजी-रूपेण गूढेषु कार्डेषु सही अक्षरं/सूत्रं चिनुतु \n३. सही उत्तरैः नूतनः स्तरः प्राप्यते",
+            "reset": "पुनः प्रारभ्यताम्!",
+            "start_game": "क्रीडां प्रारभताम्!"
+        };
+
+        const EMOJI_CARDS = ["🦊","🐱","🫎","🦇","🦉","🐥","🐢","🪼","🐙","🦑","🐡","🐠",
+                           "🐟","🐬","🐳","🐋","🦈","🐅","🐆","🦧","🐘","🐂","🐄","🐿️",
+                           "🐦‍🔥","🐚","☀️","🪁","🪂","🏹","🤹🏻‍♀️","🎮","🪈","🏎️","🏍️",
+                           "🚔","🚖","🚀","🛸","🚁","🚤","⛴️","🎡","🎠","🏰","🛕","🔫",
+                           "🔭","🔬","🙈","🙉","🙊"];
+
+        const COLOR_OPTIONS = ["#d63384", "#6f42c1", "#0d6efd", "#198754", "#fd7e14", "#dc3545"];
+
+        const sutra_sequence = [ 
+            ["अ", "इ", "उ", "ण्"],
+            ["ऋ", "ऌ", "क्"],
+            ["ए", "ओ", "ङ्"],
+            ["ऐ", "औ", "च्"],
+            ["ह", "य", "व", "र", "ट्"],
+            ["ल", "ण्"],
+            ["ञ", "म", "ङ", "ण", "न", "म्"],
+            ["झ", "भ", "ञ्"],
+            ["घ", "ढ", "ध", "ष्"],
+            ["ज", "ब", "ग", "ड", "द", "श्"],
+            ["ख", "फ", "छ", "ठ", "थ", "च", "ट", "त", "व्"],
+            ["क", "प", "य्"],
+            ["श", "ष", "स", "र्"],
+            ["ह", "ल्"]
+        ];
+
+        const flat_sutra_sequence = ["अ", "इ", "उ", "ण्", "ऋ", "ऌ", "क्", "ए", "ओ", "ङ्", 
+                                  "ऐ", "औ", "च्", "ह", "य", "व", "र", "ट्", "ल", "ण्", 
+                                  "ञ", "म", "ङ", "ण", "न", "म्", "झ", "भ", "ञ्", "घ", 
+                                  "ढ", "ध", "ष्", "ज", "ब", "ग", "ड", "द", "श्", "ख", 
+                                  "फ", "छ", "ठ", "थ", "च", "ट", "त", "व्", "क", "प", 
+                                  "य्", "श", "ष", "स", "र्", "ह", "ल्"];
+
+        // Game state
+        let gameState = {
+            gameStarted: false,
+            score: 0,
+            level: 1,
+            streak: 0,
+            maxStreak: 0,
+            questionCount: 0,
+            currentLetterIndex: Math.floor(Math.random() * flat_sutra_sequence.length),
+            currentSutraIndex: Math.floor(Math.random() * sutra_sequence.length),
+            options: [],
+            selected: null,
+            showLetters: false,
+            currentMode: "letter",
+            direction: "forward",
+            difficulty: "medium",
+            currentColor: COLOR_OPTIONS[Math.floor(Math.random() * COLOR_OPTIONS.length)],
+            currentEmojis: [],
+            currentItem: null,
+            correctAnswer: null,
+            questionText: ""
+        };
+
+        // DOM elements
+        const startPage = document.getElementById('start-page');
+        const gamePage = document.getElementById('game-page');
+        const startButton = document.getElementById('start-game');
+        const resetButton = document.getElementById('reset-game');
+        const difficultySelect = document.getElementById('difficulty');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const resultMessage = document.getElementById('result-message');
+        const scoreDisplay = document.getElementById('score-display');
+        const levelDisplay = document.getElementById('level-display');
+        const difficultyBadge = document.getElementById('difficulty-badge');
+        const progressBar = document.getElementById('progress');
+
+        // Event listeners
+        startButton.addEventListener('click', startGame);
+        resetButton.addEventListener('click', resetGame);
+        difficultySelect.addEventListener('change', updateDifficulty);
+
+        // Helper functions
+        function getRandomEmojis(count) {
+            const shuffled = [...EMOJI_CARDS].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        function updateDifficulty() {
+            gameState.difficulty = difficultySelect.value;
+            resetGame();
+        }
+
+        function startGame() {
+            gameState.gameStarted = true;
+            gameState.difficulty = difficultySelect.value;
+            startPage.classList.add('hidden');
+            gamePage.classList.remove('hidden');
+            updateDifficultyBadge();
+            getNextQuestion();
+        }
+
+        function resetGame() {
+            gameState = {
+                gameStarted: true,
+                score: 0,
+                level: 1,
+                streak: 0,
+                maxStreak: 0,
+                questionCount: 0,
+                currentLetterIndex: Math.floor(Math.random() * flat_sutra_sequence.length),
+                currentSutraIndex: Math.floor(Math.random() * sutra_sequence.length),
+                options: [],
+                selected: null,
+                showLetters: false,
+                currentMode: "letter",
+                direction: "forward",
+                difficulty: difficultySelect.value,
+                currentColor: COLOR_OPTIONS[Math.floor(Math.random() * COLOR_OPTIONS.length)],
+                currentEmojis: getRandomEmojis(4),
+                currentItem: null,
+                correctAnswer: null,
+                questionText: ""
+            };
+            
+            updateUI();
+            getNextQuestion();
+        }
+
+        function updateDifficultyBadge() {
+            let color, text;
+            switch(gameState.difficulty) {
+                case 'easy':
+                    color = '#28a745';
+                    text = 'EASY';
+                    break;
+                case 'medium':
+                    color = '#fd7e14';
+                    text = 'MEDIUM';
+                    break;
+                case 'hard':
+                    color = '#dc3545';
+                    text = 'HARD';
+                    break;
+            }
+            difficultyBadge.style.backgroundColor = color;
+            difficultyBadge.textContent = text;
+        }
+
+        function getNextQuestion() {
+            gameState.currentColor = COLOR_OPTIONS[Math.floor(Math.random() * COLOR_OPTIONS.length)];
+            gameState.currentEmojis = getRandomEmojis(4);
+            
+            // Determine question mode
+            gameState.currentMode = (gameState.questionCount % 10 !== 0) ? "letter" : "sutra";
+            if (gameState.questionCount % 3 === 0) {
+                gameState.direction = Math.random() > 0.5 ? "forward" : "reverse";
+            }
+
+            if (gameState.currentMode === "letter") {
+                const currentIdx = Math.floor(Math.random() * flat_sutra_sequence.length);
+                const currentLetter = flat_sutra_sequence[currentIdx];
+                
+                if (gameState.direction === "forward") {
+                    const nextIdx = (currentIdx + 1) % flat_sutra_sequence.length;
+                    const correctAnswer = flat_sutra_sequence[nextIdx];
+                    gameState.questionText = `${currentLetter} इत्यस्य अनन्तरं किम् अक्षरम् आगच्छति?`;
+                    gameState.currentItem = currentLetter;
+                    gameState.correctAnswer = correctAnswer;
+                } else {
+                    const nextIdx = (currentIdx - 1 + flat_sutra_sequence.length) % flat_sutra_sequence.length;
+                    const correctAnswer = flat_sutra_sequence[nextIdx];
+                    gameState.questionText = `${currentLetter} इत्यस्य पूर्वं किम् अक्षरम् आसीत्?`;
+                    gameState.currentItem = currentLetter;
+                    gameState.correctAnswer = correctAnswer;
+                }
+            } else {
+                const currentIdx = Math.floor(Math.random() * sutra_sequence.length);
+                const currentSutra = sutra_sequence[currentIdx];
+                
+                if (gameState.direction === "forward") {
+                    const nextIdx = (currentIdx + 1) % sutra_sequence.length;
+                    const correctAnswer = sutra_sequence[nextIdx];
+                    gameState.questionText = `${currentSutra.join(' ')} इत्यस्य अनन्तरं किम् सूत्रम् आगच्छति?`;
+                    gameState.currentItem = currentSutra;
+                    gameState.correctAnswer = correctAnswer;
+                } else {
+                    const nextIdx = (currentIdx - 1 + sutra_sequence.length) % sutra_sequence.length;
+                    const correctAnswer = sutra_sequence[nextIdx];
+                    gameState.questionText = `${currentSutra.join(' ')} इत्यस्य पूर्वं किम् सूत्रम् आसीत्?`;
+                    gameState.currentItem = currentSutra;
+                    gameState.correctAnswer = correctAnswer;
+                }
+            }
+            
+            gameState.options = generateOptions(gameState.correctAnswer, gameState.currentMode);
+            gameState.showLetters = true;
+            
+            displayQuestion();
+            showLetters();
+        }
+
+        function generateOptions(correctAnswer, mode) {
+            let options = [correctAnswer];
+            let pool;
+            
+            if (mode === "letter") {
+                pool = [...flat_sutra_sequence];
+            } else {
+                pool = sutra_sequence.filter(item => JSON.stringify(item) !== JSON.stringify(correctAnswer));
+            }
+            
+            let numOptions;
+            switch(gameState.difficulty) {
+                case 'easy':
+                    numOptions = 3;
+                    break;
+                case 'medium':
+                    numOptions = 4;
+                    break;
+                case 'hard':
+                    numOptions = 6;
+                    break;
+            }
+            
+            // Shuffle the pool
+            pool = pool.sort(() => 0.5 - Math.random());
+            
+            // Add options until we have enough
+            while (options.length < numOptions && pool.length > 0) {
+                const option = pool.pop();
+                if (mode === "letter" || JSON.stringify(option) !== JSON.stringify(correctAnswer)) {
+                    options.push(option);
+                }
+            }
+            
+            // Shuffle the options
+            return options.sort(() => 0.5 - Math.random());
+        }
+
+        function displayQuestion() {
+            let questionText = gameState.questionText;
+            const highlightColor = "#dc3545";
+            
+            if (gameState.currentMode === "letter") {
+                const targetLetter = gameState.currentItem;
+                questionText = questionText.replace(
+                    `${targetLetter} इत्यस्य`, 
+                    `<span style='color:${highlightColor}; font-size: 36px; font-weight:bold;'>${targetLetter}</span> इत्यस्य`
+                );
+            } else {
+                const currentSutra = gameState.currentItem;
+                const joinedSutra = currentSutra.join(' ');
+                questionText = questionText.replace(
+                    joinedSutra, 
+                    `<span style='color:${highlightColor}; font-size: 36px; font-weight:bold;'>${joinedSutra}</span>`
+                );
+            }
+            
+            document.getElementById('question-text').innerHTML = `🔍 ${questionText}`;
+        }
+
+        function showLetters() {
+            optionsContainer.innerHTML = '';
+            
+            gameState.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'card';
+                
+                const displayText = Array.isArray(option) ? option.join(' ') : option;
+                const fontSize = Array.isArray(option) ? "28px" : "52px";
+                
+                optionDiv.innerHTML = displayText;
+                optionDiv.style.fontSize = fontSize;
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Hide letters after 3 seconds
+            setTimeout(() => {
+                gameState.showLetters = false;
+                showEmojiCards();
+            }, 3000);
+        }
+
+        function showEmojiCards() {
+            optionsContainer.innerHTML = '';
+            
+            gameState.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'card';
+                optionDiv.innerHTML = gameState.currentEmojis[index % gameState.currentEmojis.length];
+                
+                optionDiv.addEventListener('click', () => {
+                    handleOptionSelect(option);
+                });
+                
+                optionsContainer.appendChild(optionDiv);
+            });
+        }
+
+        function handleOptionSelect(selectedOption) {
+            gameState.selected = selectedOption;
+            gameState.questionCount++;
+            
+            const isCorrect = JSON.stringify(selectedOption) === JSON.stringify(gameState.correctAnswer);
+            
+            if (isCorrect) {
+                // Correct answer
+                gameState.streak++;
+                if (gameState.streak > gameState.maxStreak) {
+                    gameState.maxStreak = gameState.streak;
+                }
+                
+                gameState.score++;
+                if (gameState.score % 3 === 0) {
+                    gameState.level++;
+                }
+                
+                showResult(true);
+                createConfetti();
+            } else {
+                // Wrong answer
+                gameState.streak = 0;
+                showResult(false);
+            }
+            
+            updateUI();
+            
+            // Move to next question after delay
+            setTimeout(() => {
+                resultMessage.classList.add('hidden');
+                getNextQuestion();
+            }, 2000);
+        }
+
+        function showResult(isCorrect) {
+            resultMessage.classList.remove('hidden');
+            
+            if (isCorrect) {
+                resultMessage.textContent = `🎉 ${SANSKRIT_MESSAGES['correct']}`;
+                resultMessage.className = 'result-message correct';
+            } else {
+                const correctDisplay = Array.isArray(gameState.correctAnswer) ? 
+                    gameState.correctAnswer.join(' ') : gameState.correctAnswer;
+                resultMessage.textContent = `${SANSKRIT_MESSAGES['wrong']}${correctDisplay}`;
+                resultMessage.className = 'result-message wrong';
+            }
+        }
+
+        function updateUI() {
+            // Update score display
+            scoreDisplay.textContent = `अङ्काः: ${gameState.score} | अनुक्रमः: ${gameState.streak} (उच्चतमः: ${gameState.maxStreak})`;
+            
+            // Update level display
+            levelDisplay.textContent = `🌟 स्तरः ${gameState.level}`;
+            levelDisplay.innerHTML = `🌟 स्तरः ${gameState.level} <span id="difficulty-badge" class="difficulty-badge" style="background-color: ${
+                gameState.difficulty === 'easy' ? '#28a745' : 
+                gameState.difficulty === 'medium' ? '#fd7e14' : '#dc3545'
+            }; color: white;">${
+                gameState.difficulty === 'easy' ? 'EASY' : 
+                gameState.difficulty === 'medium' ? 'MEDIUM' : 'HARD'
+            }</span>`;
+            
+            // Update progress bar
+            const progress = (gameState.score % 3) / 3 * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function createConfetti() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.className = 'confetti-container';
+            document.body.appendChild(confettiContainer);
+            
+            const emojis = ['🏅', '🎖️', '⭐', '✨', '🌟'];
+            const count = 30;
+            
+            for (let i = 0; i < count; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.top = '-50px';
+                confetti.style.fontSize = `${Math.random() * 20 + 10}px`;
+                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                confettiContainer.appendChild(confetti);
+            }
+            
+            setTimeout(() => {
+                confettiContainer.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
